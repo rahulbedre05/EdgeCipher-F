@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="features-section">
+        <h1>Experience AI-Powered Crypto Trading</h1>
+        <p>Harness the power of DeepSeek AI and advanced algorithms for intelligent trading decisions.</p>
+        
+        <div class="feature-list">
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>DeepSeek AI Integration</h3>
+                <p>Advanced AI algorithms for precise market predictions and risk analysis</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-robot"></i>
+                <h3>Smart Trading Signals</h3>
+                <p>Real-time trading suggestions with emotion analysis and risk management</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>AI Analytics Dashboard</h3>
+                <p>Comprehensive market analysis with predictive modeling</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Intelligent Security</h3>
+                <p>AI-powered fraud detection and asset protection systems</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="register-container">
+        <div class="logo">
+            <i class="fas fa-brain"></i>
+            <span>EdgeCipher</span>
+        </div>
+        
+        <div class="register-title">Create Your Account</div>
+        
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="firstName" formControlName="firstName" placeholder="John">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="lastName" formControlName="lastName" placeholder="Doe">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="email">Email Address</label>
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" formControlName="email" placeholder="john@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" formControlName="password" placeholder="Create a strong password" (input)="checkPasswordStrength($event)">
+                    <div class="password-strength">
+                        <div class="strength-meter" [style.width.%]="passwordStrength" [style.backgroundColor]="passwordStrengthColor"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+                </div>
+            </div>
+
+            <button type="submit" class="register-btn">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+        </form>
+
+        <div class="terms">
+            By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </div>
+
+        <a routerLink="/login" class="login-link">Already have an account? Sign in</a>
+    </div>
+</div>

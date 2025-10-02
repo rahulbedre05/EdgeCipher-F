@@ -1,0 +1,245 @@
+:root {
+    --background: #0F1B35;
+    --primary: #2C6BED;
+    --secondary: #00C6A9;
+    --accent: #E74C3C;
+    --text: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --card-bg: linear-gradient(135deg, #1A2C4E, #22345C);
+    --sidebar-bg: #0A1429;
+    --header-bg: #131F3A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+:host {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+/* Ensure sidebar nav-item text is always white */
+.sidebar .nav-menu .nav-item,
+.sidebar .nav-menu .nav-item.active {
+    color: #fff !important;
+    text-decoration: none;
+}
+.sidebar .nav-menu .nav-item span {
+    color: #fff !important;
+}
+.sidebar .nav-menu .nav-item:visited {
+    color: #fff !important;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+.logo i { color: var(--secondary); font-size: 24px; }
+.nav-menu { display: flex; flex-direction: column; gap: 8px; }
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.nav-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+.nav-item.active { background-color: var(--primary); }
+.nav-item i { width: 20px; text-align: center; }
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background);
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+.header {
+    background-color: var(--header-bg);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.user-controls { display: flex; align-items: center; gap: 16px; }
+.notification-badge { position: relative; cursor: pointer; }
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+.dashboard-content {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    overflow-y: auto;
+    min-height: 0;
+}
+.dashboard-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    min-width: 220px;
+    flex: 1;
+    min-height: 90px;
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(44,107,237,0.18);
+}
+.card-title {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+.card-value {
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.card-value.positive { color: var(--secondary); }
+.card-value.negative { color: var(--accent); }
+.portfolio-chart, .market-chart {
+    background: rgba(0,0,0,0.18);
+    border-radius: 12px;
+    padding: 18px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex: 1;
+}
+.portfolio-chart { min-width: 350px; }
+.market-chart { min-width: 250px; }
+.ai-insights-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.ai-card {
+    background: linear-gradient(135deg, #2C6BED, #00C6A9);
+    color: #fff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    flex: 1;
+    min-width: 320px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(44,107,237,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.ai-card.warning { background: linear-gradient(135deg, #E74C3C, #FFD700); color: #fff; }
+.recent-trades-table {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+.recent-trades-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.recent-trades-table th, .recent-trades-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 15px;
+}
+.recent-trades-table th {
+    background: var(--header-bg);
+    color: var(--text-secondary);
+}
+.recent-trades-table tr {
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.recent-trades-table tr:hover {
+    background: rgba(44,107,237,0.08);
+}
+.dashboard-detail {
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+.notification-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+}
+.notification-panel.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@media (max-width: 1200px) {
+    .sidebar { width: 80px; }
+    .sidebar .logo span,
+    .sidebar .nav-item span { display: none; }
+    .sidebar .logo { justify-content: center; }
+    .sidebar .nav-item { justify-content: center; padding: 12px; }
+    .dashboard-row, .ai-insights-row { flex-direction: column; }
+}
